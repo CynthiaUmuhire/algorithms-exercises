@@ -4,14 +4,41 @@ import { App, snapshot, done, clear } from "./sort-visualizer";
 
 import "./sort.css";
 
-function sort(array) {
-  // do cool stuff here
-
-  // call snapshot any time you do anything to the array
-  // it's okay if you call it with duplicate value array,
-  // it will deduplicate for you
-  snapshot(array);
+function sort(nums) {
+  /* BUBBLE SORT
+   let hasSwapped = true;
+   do {
+    hasSwapped = false;
+    for (let i = 0; i < nums.length; i++) {
+      snapshot(nums);
+      if (nums[i + 1] < nums[i]) {
+        const temp = nums[i + 1];
+        nums[i + 1] = nums[i];
+        nums[i] = temp;
+        hasSwapped = true;
+      }
+    }
+  } while (hasSwapped);
+   return nums; }
+   */
+  // INSERTION SORT
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i; j >= 0; j--) {
+      snapshot(nums)
+      if (j === 0) continue
+      if (nums[j] < nums[j - 1]) {
+        const temp = nums[j - 1]
+        nums[j - 1] = nums[j]
+        nums[j] = temp
+      } else {
+        continue
+      }
+    }
+     snapshot(nums)
+  }
+  return nums
 }
+
 
 export default function SortComponent() {
   clear();
